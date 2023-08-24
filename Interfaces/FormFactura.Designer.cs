@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             lbl_NumeroFactura = new Label();
             dtp_FechaFactura = new DateTimePicker();
@@ -171,6 +174,7 @@
             btn_agregar.TabIndex = 13;
             btn_agregar.Text = "Agregar Detalle";
             btn_agregar.UseVisualStyleBackColor = true;
+            btn_agregar.Click += btn_agregar_Click;
             // 
             // label6
             // 
@@ -188,6 +192,7 @@
             txt_Cantidad.Name = "txt_Cantidad";
             txt_Cantidad.Size = new Size(100, 23);
             txt_Cantidad.TabIndex = 11;
+            txt_Cantidad.TextAlign = HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -228,18 +233,27 @@
             // 
             // Cantidad
             // 
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
             Cantidad.ReadOnly = true;
             // 
             // Precio
             // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            Precio.DefaultCellStyle = dataGridViewCellStyle2;
             Precio.HeaderText = "Precio";
             Precio.Name = "Precio";
             Precio.ReadOnly = true;
             // 
             // Subtotal
             // 
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            Subtotal.DefaultCellStyle = dataGridViewCellStyle3;
             Subtotal.HeaderText = "SubTotal";
             Subtotal.Name = "Subtotal";
             Subtotal.ReadOnly = true;

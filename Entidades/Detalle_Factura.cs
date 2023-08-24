@@ -24,9 +24,9 @@ namespace _405369_Facturacion
             Cantidad = cant;
         }
 
-        public double CalculaSubTotal()
+        public decimal CalculaSubTotal()
         {
-            return (double)Cantidad * articulo.Precio_Unitario;
+            return (decimal)Cantidad * articulo.Precio_Unitario;
         }
 
 

@@ -29,9 +29,9 @@ namespace _405369_Facturacion
             ListaDetalle = lista_detalle;
         }
 
-        public double CalculaTotal()
+        public decimal CalculaTotal()
         { 
-            double total = 0;
+            decimal total = 0;
             foreach(Detalle_Factura detalle in ListaDetalle) 
             {
                 total += detalle.CalculaSubTotal();

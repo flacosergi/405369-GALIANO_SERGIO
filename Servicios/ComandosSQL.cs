@@ -34,9 +34,11 @@ namespace _405369_Facturacion
         {
             try
             {
-                comando.Transaction.Commit();
-                conexion.Close();
-
+                if (conexion.State == ConnectionState.Open)
+                {
+                    comando.Transaction.Commit();
+                    conexion.Close();
+                }
             }
             catch (SqlException ex)
             {
@@ -45,28 +47,6 @@ namespace _405369_Facturacion
 
         }
 
-        //public void CargaCombo(ComboBox combo, string SQLSP, string nombre_valuemember, string nombre_displaymember)
-        //{
-        //    try
-        //    {
-        //        AbreConexionConTransaccion();
-        //        comando.CommandText = SQLSP;
-        //        comando.CommandType = CommandType.Text;
-        //        DataTable tabla = new DataTable();
-        //        tabla.Load(comando.ExecuteReader());
-        //        CierraConcexionConTransaccion();
-        //        combo.DataSource = tabla;
-        //        combo.ValueMember = nombre_valuemember;
-        //        combo.DisplayMember = nombre_displaymember;
-        //        combo.SelectedIndex = -1;
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        ProcesaError(ex);
-        //    }
-
-        //}
-
         public SqlDataReader? EjecutaLectorSP(string SQLSP, List<SqlParameter> parametros)
         {
             try
@@ -74,7 +54,7 @@ namespace _405369_Facturacion
                 comando.CommandText = SQLSP;
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Clear();
-                foreach (SqlParameter par in parametros) 
+                foreach (SqlParameter par in parametros)
                 {
                     comando.Parameters.Add(par);
                 }
@@ -83,7 +63,7 @@ namespace _405369_Facturacion
             catch (SqlException ex)
             {
                 ProcesaError(ex);
-                return  null;
+                return null;
             }
 
         }

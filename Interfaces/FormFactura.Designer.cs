@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             label1 = new Label();
             lbl_NumeroFactura = new Label();
             dtp_FechaFactura = new DateTimePicker();
@@ -39,7 +39,7 @@
             label3 = new Label();
             button1 = new Button();
             label4 = new Label();
-            textBox1 = new TextBox();
+            txt_cliente = new TextBox();
             cbo_producto = new ComboBox();
             GrupoDetalle = new GroupBox();
             btn_agregar = new Button();
@@ -53,6 +53,9 @@
             Precio = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
             Accion = new DataGridViewButtonColumn();
+            label7 = new Label();
+            txt_Total_Factura = new TextBox();
+            btn_guardar = new Button();
             GrupoDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_detalle).BeginInit();
             SuspendLayout();
@@ -116,7 +119,7 @@
             // button1
             // 
             button1.ForeColor = Color.Blue;
-            button1.Location = new Point(713, 431);
+            button1.Location = new Point(713, 502);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 6;
@@ -134,13 +137,13 @@
             label4.TabIndex = 7;
             label4.Text = "Cliente";
             // 
-            // textBox1
+            // txt_cliente
             // 
-            textBox1.Location = new Point(147, 139);
-            textBox1.MaxLength = 100;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(374, 23);
-            textBox1.TabIndex = 8;
+            txt_cliente.Location = new Point(147, 139);
+            txt_cliente.MaxLength = 100;
+            txt_cliente.Name = "txt_cliente";
+            txt_cliente.Size = new Size(374, 23);
+            txt_cliente.TabIndex = 8;
             // 
             // cbo_producto
             // 
@@ -233,27 +236,27 @@
             // 
             // Cantidad
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N0";
-            Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N0";
+            Cantidad.DefaultCellStyle = dataGridViewCellStyle4;
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
             Cantidad.ReadOnly = true;
             // 
             // Precio
             // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            Precio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            Precio.DefaultCellStyle = dataGridViewCellStyle5;
             Precio.HeaderText = "Precio";
             Precio.Name = "Precio";
             Precio.ReadOnly = true;
             // 
             // Subtotal
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            Subtotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            Subtotal.DefaultCellStyle = dataGridViewCellStyle6;
             Subtotal.HeaderText = "SubTotal";
             Subtotal.Name = "Subtotal";
             Subtotal.ReadOnly = true;
@@ -265,15 +268,48 @@
             Accion.ReadOnly = true;
             Accion.Width = 80;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.Blue;
+            label7.Location = new Point(595, 429);
+            label7.Name = "label7";
+            label7.Size = new Size(74, 15);
+            label7.TabIndex = 14;
+            label7.Text = "Total Factura";
+            // 
+            // txt_Total_Factura
+            // 
+            txt_Total_Factura.Enabled = false;
+            txt_Total_Factura.Location = new Point(688, 426);
+            txt_Total_Factura.Name = "txt_Total_Factura";
+            txt_Total_Factura.Size = new Size(100, 23);
+            txt_Total_Factura.TabIndex = 13;
+            txt_Total_Factura.TextAlign = HorizontalAlignment.Right;
+            // 
+            // btn_guardar
+            // 
+            btn_guardar.ForeColor = Color.Blue;
+            btn_guardar.Location = new Point(610, 502);
+            btn_guardar.Name = "btn_guardar";
+            btn_guardar.Size = new Size(75, 23);
+            btn_guardar.TabIndex = 15;
+            btn_guardar.Text = "Guardar";
+            btn_guardar.UseVisualStyleBackColor = true;
+            btn_guardar.Click += btn_guardar_Click;
+            // 
             // FormFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(800, 466);
+            ClientSize = new Size(800, 537);
+            Controls.Add(btn_guardar);
+            Controls.Add(label7);
+            Controls.Add(txt_Total_Factura);
             Controls.Add(dgv_detalle);
             Controls.Add(GrupoDetalle);
-            Controls.Add(textBox1);
+            Controls.Add(txt_cliente);
             Controls.Add(label4);
             Controls.Add(button1);
             Controls.Add(label3);
@@ -302,7 +338,7 @@
         private Label label3;
         private Button button1;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txt_cliente;
         private ComboBox cbo_producto;
         private GroupBox GrupoDetalle;
         private Label label6;
@@ -316,5 +352,8 @@
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Subtotal;
         private DataGridViewButtonColumn Accion;
+        private Label label7;
+        private TextBox txt_Total_Factura;
+        private Button btn_guardar;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,14 @@ namespace _405369_Facturacion
             return total;
          }
 
-
+        public void GuardaFactura(ComandosSQL comando)
+        {
+            List<SqlParameter> param = new ();
+            param.Add(new SqlParameter("@Nro_Factura", NroFactura));
+            param.Add(new SqlParameter("@Fecha", Fecha));
+            param.Add(new SqlParameter("@ID_Forma_Pago", ID_Forma_Pago));
+            param.Add(new SqlParameter("@Cliente", Cliente));
+            comando.EjecutaSP("sp_Ingresa_Factura", param);
+        }
     }
 }

@@ -62,6 +62,28 @@ namespace _405369_Facturacion
             return NuevaLista;
         }
 
+        public Tuple <int, DateTime> ProximaFactura()
+        {
+            ComandosSQL comando = new ComandosSQL();
+            comando.AbreConexionConTransaccion();
+            List<SqlParameter> param = new List<SqlParameter>();
+            SqlParameter p = new();
+            p.ParameterName = "@Ultima_Factura";
+            p.Direction = System.Data.ParameterDirection.Output;
+            p.DbType = System.Data.DbType.Int32;
+            param.Add(p);
+            SqlParameter q = new();
+            q.ParameterName = "@Ultima_Fecha";
+            q.Direction = System.Data.ParameterDirection.Output;
+            q.DbType = System.Data.DbType.Date;
+            param.Add(q);
+            comando.EjecutaSP("sp_Obtiene_Ultima_Factura", param);
+            comando.CierraConcexionConTransaccion();
+            if (p.Value == DBNull.Value)
+                return new Tuple<int, DateTime>(0, new DateTime(DateTime.Now.Year, 1, 1));
+            return new Tuple<int, DateTime>((int)p.Value, (DateTime)q.Value);
+        }
+
 
     }
 }

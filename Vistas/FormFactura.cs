@@ -54,17 +54,33 @@ namespace _405369_Facturacion
                 return;
             }
             Articulo seleccionado = (Articulo)cbo_producto.SelectedItem;
+            foreach (Detalle_Factura det in NuevaFactura.ListaDetalle)
+            {
+                if (det.articulo.Equals(seleccionado))
+                {
+                    det.Cantidad += Int32.Parse(txt_Cantidad.Text);
+                    dgv_detalle.Rows[NuevaFactura.ListaDetalle.IndexOf(det)].Cells["Cantidad"].Value = det.Cantidad;
+                    dgv_detalle.Rows[NuevaFactura.ListaDetalle.IndexOf(det)].Cells["Subtotal"].Value = det.CalculaSubTotal();
+                    LimpiaDetalle();
+                    return;
+                }
+            }
+
             Detalle_Factura NuevoDetalle = new();
             NuevoDetalle.articulo = seleccionado;
             NuevoDetalle.Cantidad = Int32.Parse(txt_Cantidad.Text);
             NuevaFactura.ListaDetalle.Add(NuevoDetalle);
-
             dgv_detalle.Rows.Add(seleccionado.ID_Articulo,
                                  seleccionado.Nombre_Articulo,
                                  NuevoDetalle.Cantidad,
                                  seleccionado.Precio_Unitario,
                                  NuevoDetalle.CalculaSubTotal(),
                                  "Eliminar");
+            LimpiaDetalle();
+        }
+
+        private void LimpiaDetalle()
+        {
             txt_Cantidad.Text = String.Empty;
             cbo_producto.SelectedIndex = -1;
             txt_Total_Factura.Text = string.Format("{0:C2}", NuevaFactura.CalculaTotal());

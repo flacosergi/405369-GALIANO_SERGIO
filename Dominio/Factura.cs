@@ -50,5 +50,15 @@ namespace _405369_Facturacion
             param.Add(new SqlParameter("@Cliente", Cliente));
             comando.EjecutaSP("sp_Ingresa_Factura", param);
         }
+
+        public List<Factura> ConsultaFacturas(DateTime desde, DateTime hasta, string cliente)
+        {
+            List<SqlParameter> param = new();
+            param.Add(new SqlParameter("@Fecha_Desde", desde));
+            param.Add(new SqlParameter("@Fecha_Hasta", hasta));
+            param.Add(new SqlParameter("@Cliente", cliente));
+
+            return new List<Factura>(); }
+
     }
 }

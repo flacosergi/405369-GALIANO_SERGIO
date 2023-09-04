@@ -73,12 +73,12 @@ namespace _405369_Facturacion
             try
             {
                 comando.CommandText = SQLSP;
+                comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Clear();
                 foreach (SqlParameter param in parametros)
                 {
                     comando.Parameters.Add(param);
                 }
-                comando.CommandType = CommandType.StoredProcedure;
                 comando.ExecuteNonQuery();
             }
             catch (SqlException ex)

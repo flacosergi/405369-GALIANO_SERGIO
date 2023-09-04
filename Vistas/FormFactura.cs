@@ -69,6 +69,7 @@ namespace _405369_Facturacion
             Detalle_Factura NuevoDetalle = new();
             NuevoDetalle.articulo = seleccionado;
             NuevoDetalle.Cantidad = Int32.Parse(txt_Cantidad.Text);
+            NuevoDetalle.Precio = seleccionado.Precio_Unitario;
             NuevaFactura.ListaDetalle.Add(NuevoDetalle);
             dgv_detalle.Rows.Add(seleccionado.ID_Articulo,
                                  seleccionado.Nombre_Articulo,
@@ -108,7 +109,6 @@ namespace _405369_Facturacion
             MessageBox.Show("La factura fue cargada", "Información:", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiaControles();
         }
-
 
         private void LimpiaControles()
         {

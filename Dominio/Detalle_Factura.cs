@@ -14,6 +14,8 @@ namespace _405369_Facturacion
         public Articulo articulo { get; set; }
         public int Cantidad { get; set; }
 
+        public decimal Precio { get; set; }
+
         public Detalle_Factura()
         {
             articulo = new Articulo();
@@ -36,6 +38,7 @@ namespace _405369_Facturacion
             param.Add(new SqlParameter("@Nro_Factura", NroFactura));
             param.Add(new SqlParameter("@ID_Articulo", articulo.ID_Articulo));
             param.Add(new SqlParameter("@Cantidad", Cantidad));
+            param.Add(new SqlParameter("Precio", Precio));
             comando.EjecutaSP("sp_Ingresa_Detalle", param);
         }
 

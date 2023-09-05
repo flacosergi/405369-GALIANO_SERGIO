@@ -14,6 +14,8 @@ namespace _405369_Facturacion
         public DateTime Fecha { get; set; }
         public int ID_Forma_Pago { get; set; }
         public string Cliente { get; set; }
+        public decimal Total { get; set; }
+        public int Estado { get; set; } //0 para nueva 1 para borrado lógico
         public List<Detalle_Factura> ListaDetalle { get; set; }
 
         public Factura()
@@ -32,33 +34,26 @@ namespace _405369_Facturacion
         }
 
         public decimal CalculaTotal()
-        { 
+        {
             decimal total = 0;
-            foreach(Detalle_Factura detalle in ListaDetalle) 
+            foreach (Detalle_Factura detalle in ListaDetalle)
             {
                 total += detalle.CalculaSubTotal();
             }
             return total;
-         }
+        }
 
         public void GuardaFactura(ComandosSQL comando)
         {
-            List<SqlParameter> param = new ();
+            List<SqlParameter> param = new();
             param.Add(new SqlParameter("@Nro_Factura", NroFactura));
             param.Add(new SqlParameter("@Fecha", Fecha));
             param.Add(new SqlParameter("@ID_Forma_Pago", ID_Forma_Pago));
             param.Add(new SqlParameter("@Cliente", Cliente));
+            param.Add(new SqlParameter("@Total", Total));
+            param.Add(new SqlParameter("Estado", 0));
             comando.EjecutaSP("sp_Ingresa_Factura", param);
         }
-
-        public List<Factura> ConsultaFacturas(DateTime desde, DateTime hasta, string cliente)
-        {
-            List<SqlParameter> param = new();
-            param.Add(new SqlParameter("@Fecha_Desde", desde));
-            param.Add(new SqlParameter("@Fecha_Hasta", hasta));
-            param.Add(new SqlParameter("@Cliente", cliente));
-
-            return new List<Factura>(); }
 
     }
 }

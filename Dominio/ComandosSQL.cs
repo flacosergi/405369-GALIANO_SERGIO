@@ -10,7 +10,7 @@ namespace _405369_Facturacion
 {
     public class ComandosSQL
     {
-        private string cadena_conexion = @"Data Source=ALFA\SQLEXPRESS;Initial Catalog = 405369-Facturacion; User ID =; Password =";
+        private string cadena_conexion = @"Data Source=ALFA\SQLEXPRESS;Initial Catalog = 405369-Facturacion; User ID = ; Password = ";
         private SqlConnection conexion = new SqlConnection();
         private SqlCommand comando = new SqlCommand();
 

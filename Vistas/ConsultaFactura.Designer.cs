@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label2 = new Label();
             dtp_FechaDesde = new DateTimePicker();
@@ -40,6 +41,7 @@
             Fecha = new DataGridViewTextBoxColumn();
             Cliente = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
+            Accion = new DataGridViewButtonColumn();
             btn_cerrar = new Button();
             btn_consultar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_ConsultaFacturas).BeginInit();
@@ -86,7 +88,7 @@
             txt_cliente.Location = new Point(116, 73);
             txt_cliente.MaxLength = 100;
             txt_cliente.Name = "txt_cliente";
-            txt_cliente.Size = new Size(520, 23);
+            txt_cliente.Size = new Size(614, 23);
             txt_cliente.TabIndex = 10;
             // 
             // label4
@@ -103,22 +105,23 @@
             // 
             dgv_ConsultaFacturas.AllowUserToAddRows = false;
             dgv_ConsultaFacturas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgv_ConsultaFacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv_ConsultaFacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_ConsultaFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_ConsultaFacturas.Columns.AddRange(new DataGridViewColumn[] { NroFactura, Fecha, Cliente, Total });
+            dgv_ConsultaFacturas.Columns.AddRange(new DataGridViewColumn[] { NroFactura, Fecha, Cliente, Total, Accion });
             dgv_ConsultaFacturas.Location = new Point(22, 119);
             dgv_ConsultaFacturas.Name = "dgv_ConsultaFacturas";
             dgv_ConsultaFacturas.ReadOnly = true;
             dgv_ConsultaFacturas.RowTemplate.Height = 25;
-            dgv_ConsultaFacturas.Size = new Size(614, 286);
+            dgv_ConsultaFacturas.Size = new Size(714, 290);
             dgv_ConsultaFacturas.TabIndex = 11;
+            dgv_ConsultaFacturas.CellContentClick += dgv_ConsultaFacturas_CellContentClick;
             // 
             // NroFactura
             // 
@@ -131,6 +134,9 @@
             // Fecha
             // 
             Fecha.DataPropertyName = "Fecha";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            Fecha.DefaultCellStyle = dataGridViewCellStyle2;
             Fecha.HeaderText = "Fecha";
             Fecha.Name = "Fecha";
             Fecha.ReadOnly = true;
@@ -152,10 +158,16 @@
             Total.ReadOnly = true;
             Total.Width = 120;
             // 
+            // Accion
+            // 
+            Accion.HeaderText = "Acción";
+            Accion.Name = "Accion";
+            Accion.ReadOnly = true;
+            // 
             // btn_cerrar
             // 
             btn_cerrar.ForeColor = Color.Blue;
-            btn_cerrar.Location = new Point(564, 415);
+            btn_cerrar.Location = new Point(660, 415);
             btn_cerrar.Name = "btn_cerrar";
             btn_cerrar.Size = new Size(75, 23);
             btn_cerrar.TabIndex = 12;
@@ -166,7 +178,7 @@
             // btn_consultar
             // 
             btn_consultar.ForeColor = Color.Blue;
-            btn_consultar.Location = new Point(471, 415);
+            btn_consultar.Location = new Point(567, 415);
             btn_consultar.Name = "btn_consultar";
             btn_consultar.Size = new Size(75, 23);
             btn_consultar.TabIndex = 13;
@@ -178,7 +190,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(651, 450);
+            ClientSize = new Size(742, 450);
             Controls.Add(btn_consultar);
             Controls.Add(btn_cerrar);
             Controls.Add(dgv_ConsultaFacturas);
@@ -210,5 +222,6 @@
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Cliente;
         private DataGridViewTextBoxColumn Total;
+        private DataGridViewButtonColumn Accion;
     }
 }

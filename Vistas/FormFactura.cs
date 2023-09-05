@@ -97,6 +97,7 @@ namespace _405369_Facturacion
             NuevaFactura.ID_Forma_Pago = (int)cbo_FormaPago.SelectedValue;
             NuevaFactura.Cliente = txt_cliente.Text;
             NuevaFactura.NroFactura = ultima_factura;
+            NuevaFactura.Total = NuevaFactura.CalculaTotal();
             ComandosSQL comando = new();
             comando.AbreConexionConTransaccion();
             NuevaFactura.GuardaFactura(comando);

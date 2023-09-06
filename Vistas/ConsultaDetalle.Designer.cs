@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgv_detalle_factura = new DataGridView();
-            Cantidad = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Unitario = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
             btn_cerrar = new Button();
             lbl_factura = new Label();
+            Cantidad = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewComboBoxColumn();
+            Unitario = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgv_detalle_factura).BeginInit();
             SuspendLayout();
             // 
@@ -52,30 +54,6 @@
             dgv_detalle_factura.Size = new Size(564, 216);
             dgv_detalle_factura.TabIndex = 0;
             // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            Cantidad.Width = 60;
-            // 
-            // Producto
-            // 
-            Producto.HeaderText = "Producto";
-            Producto.Name = "Producto";
-            Producto.Width = 200;
-            // 
-            // Unitario
-            // 
-            Unitario.HeaderText = "Precio Unitario";
-            Unitario.Name = "Unitario";
-            Unitario.Width = 120;
-            // 
-            // SubTotal
-            // 
-            SubTotal.HeaderText = "SubTotal";
-            SubTotal.Name = "SubTotal";
-            SubTotal.Width = 120;
-            // 
             // btn_cerrar
             // 
             btn_cerrar.ForeColor = Color.Blue;
@@ -85,6 +63,7 @@
             btn_cerrar.TabIndex = 13;
             btn_cerrar.Text = "Cerrar";
             btn_cerrar.UseVisualStyleBackColor = true;
+            btn_cerrar.Click += btn_cerrar_Click;
             // 
             // lbl_factura
             // 
@@ -95,6 +74,41 @@
             lbl_factura.Size = new Size(89, 21);
             lbl_factura.TabIndex = 14;
             lbl_factura.Text = "Factura N°";
+            // 
+            // Cantidad
+            // 
+            Cantidad.DataPropertyName = "Cantidad";
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.Width = 60;
+            // 
+            // Producto
+            // 
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            Producto.Resizable = DataGridViewTriState.True;
+            Producto.SortMode = DataGridViewColumnSortMode.Automatic;
+            Producto.Width = 200;
+            // 
+            // Unitario
+            // 
+            Unitario.DataPropertyName = "Precio";
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            Unitario.DefaultCellStyle = dataGridViewCellStyle1;
+            Unitario.HeaderText = "Precio Unitario";
+            Unitario.Name = "Unitario";
+            Unitario.Width = 120;
+            // 
+            // SubTotal
+            // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            SubTotal.DefaultCellStyle = dataGridViewCellStyle2;
+            SubTotal.HeaderText = "SubTotal";
+            SubTotal.Name = "SubTotal";
+            SubTotal.Width = 120;
             // 
             // ConsultaDetalle
             // 
@@ -115,11 +129,11 @@
         #endregion
 
         private DataGridView dgv_detalle_factura;
-        private DataGridViewTextBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn Unitario;
-        private DataGridViewTextBoxColumn SubTotal;
         private Button btn_cerrar;
         private Label lbl_factura;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewComboBoxColumn Producto;
+        private DataGridViewTextBoxColumn Unitario;
+        private DataGridViewTextBoxColumn SubTotal;
     }
 }

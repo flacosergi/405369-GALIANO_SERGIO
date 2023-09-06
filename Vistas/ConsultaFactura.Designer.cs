@@ -44,6 +44,8 @@
             Accion = new DataGridViewButtonColumn();
             btn_cerrar = new Button();
             btn_consultar = new Button();
+            btn_eliminar = new Button();
+            btn_editar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_ConsultaFacturas).BeginInit();
             SuspendLayout();
             // 
@@ -116,9 +118,11 @@
             dgv_ConsultaFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_ConsultaFacturas.Columns.AddRange(new DataGridViewColumn[] { NroFactura, Fecha, Cliente, Total, Accion });
             dgv_ConsultaFacturas.Location = new Point(22, 119);
+            dgv_ConsultaFacturas.MultiSelect = false;
             dgv_ConsultaFacturas.Name = "dgv_ConsultaFacturas";
             dgv_ConsultaFacturas.ReadOnly = true;
             dgv_ConsultaFacturas.RowTemplate.Height = 25;
+            dgv_ConsultaFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_ConsultaFacturas.Size = new Size(714, 290);
             dgv_ConsultaFacturas.TabIndex = 11;
             dgv_ConsultaFacturas.CellContentClick += dgv_ConsultaFacturas_CellContentClick;
@@ -186,11 +190,35 @@
             btn_consultar.UseVisualStyleBackColor = true;
             btn_consultar.Click += btn_consultar_Click;
             // 
+            // btn_eliminar
+            // 
+            btn_eliminar.ForeColor = Color.Blue;
+            btn_eliminar.Location = new Point(116, 415);
+            btn_eliminar.Name = "btn_eliminar";
+            btn_eliminar.Size = new Size(75, 23);
+            btn_eliminar.TabIndex = 14;
+            btn_eliminar.Text = "Eliminar";
+            btn_eliminar.UseVisualStyleBackColor = true;
+            btn_eliminar.Click += btn_eliminar_Click;
+            // 
+            // btn_editar
+            // 
+            btn_editar.ForeColor = Color.Blue;
+            btn_editar.Location = new Point(21, 415);
+            btn_editar.Name = "btn_editar";
+            btn_editar.Size = new Size(75, 23);
+            btn_editar.TabIndex = 15;
+            btn_editar.Text = "Editar";
+            btn_editar.UseVisualStyleBackColor = true;
+            btn_editar.Click += btn_editar_Click;
+            // 
             // ConsultaFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(742, 450);
+            Controls.Add(btn_editar);
+            Controls.Add(btn_eliminar);
             Controls.Add(btn_consultar);
             Controls.Add(btn_cerrar);
             Controls.Add(dgv_ConsultaFacturas);
@@ -223,5 +251,7 @@
         private DataGridViewTextBoxColumn Cliente;
         private DataGridViewTextBoxColumn Total;
         private DataGridViewButtonColumn Accion;
+        private Button btn_eliminar;
+        private Button btn_editar;
     }
 }

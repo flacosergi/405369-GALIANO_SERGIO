@@ -13,7 +13,6 @@ namespace _405369_Facturacion
         public int NroFactura { get; set; }
         public Articulo articulo { get; set; }
         public int Cantidad { get; set; }
-
         public decimal Precio { get; set; }
 
         public Detalle_Factura()
@@ -29,7 +28,7 @@ namespace _405369_Facturacion
 
         public decimal CalculaSubTotal()
         {
-            return (decimal)Cantidad * articulo.Precio_Unitario;
+            return (decimal)Cantidad * Precio;
         }
 
         public void GuardaDetalle(ComandosSQL comando)

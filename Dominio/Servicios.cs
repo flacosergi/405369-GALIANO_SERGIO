@@ -20,6 +20,14 @@ namespace _405369_Facturacion
             combo.SelectedIndex = -1;
         }
 
+        public void CargaComboDGV(DataGridViewComboBoxColumn combo, List<object> lista, string nombre_valuemember, string nombre_displaymember)
+        {
+            combo.DisplayMember = nombre_displaymember;
+            combo.ValueMember = nombre_valuemember;
+            combo.DataSource = lista;
+        }
+
+
         public List<Forma_Pago> LeeFormasPago()
         {
             List<Forma_Pago> NuevaLista = new();
@@ -126,6 +134,7 @@ namespace _405369_Facturacion
                 while (Lector.Read())
                 {
                     Detalle_Factura NuevoDetalle = new();
+                    NuevoDetalle.ID_Detalle_Factura = Lector.GetInt32(Lector.GetOrdinal("ID_Detalle_Factura"));
                     NuevoDetalle.NroFactura = Lector.GetInt32(Lector.GetOrdinal("NroFactura"));
                     NuevoDetalle.articulo.ID_Articulo = Lector.GetInt32(Lector.GetOrdinal("ID_Articulo"));
                     NuevoDetalle.Cantidad = Lector.GetInt32(Lector.GetOrdinal("Cantidad"));
@@ -137,6 +146,16 @@ namespace _405369_Facturacion
 
             comando.CierraConcexionConTransaccion();
             return NuevaLista;
+        }
+
+        public void BorradoLogicoFactura(int nro_factura)
+        {
+            ComandosSQL comando = new ComandosSQL();
+            comando.AbreConexionConTransaccion();
+            List<SqlParameter> param = new();
+            param.Add(new SqlParameter("@NroFactura", nro_factura));
+            comando.EjecutaSP("sp_Facturas_Borrado_Logico", param);
+            comando.CierraConcexionConTransaccion();
         }
 
     }

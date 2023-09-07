@@ -30,6 +30,8 @@ namespace _405369_Facturacion
 
         }
 
+
+
         public void CierraConcexionConTransaccion()
         {
             try
@@ -78,6 +80,7 @@ namespace _405369_Facturacion
                 foreach (SqlParameter param in parametros)
                 {
                     comando.Parameters.Add(param);
+                    
                 }
                 comando.ExecuteNonQuery();
             }

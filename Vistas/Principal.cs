@@ -16,5 +16,17 @@ namespace _405369_Facturacion.Vistas
         {
             InitializeComponent();
         }
+
+        private void altaDeFacturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormFactura f_factura = new();
+            f_factura.ShowDialog(this);
+        }
+
+        private void consultaEdicionYBajaDeFacrturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaFactura c_factura = new();
+            c_factura.ShowDialog(this);
+        }
     }
 }

@@ -1,3 +1,5 @@
+using _405369_Facturacion.Vistas;
+
 namespace _405369_Facturacion
 {
     internal static class Program
@@ -10,7 +12,7 @@ namespace _405369_Facturacion
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ConsultaFactura());
+            Application.Run(new Principal());
         }
     }
 }

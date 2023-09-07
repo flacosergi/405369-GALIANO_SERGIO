@@ -168,7 +168,7 @@ namespace _405369_Facturacion
                     NuevaFactura.ListaDetalle.RemoveAt(e.RowIndex);
                     dgv_detalle.Rows.RemoveAt(e.RowIndex);
                 }
-            
+
             }
         }
     }

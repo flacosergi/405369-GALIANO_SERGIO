@@ -27,7 +27,6 @@ namespace _405369_Facturacion
             combo.DataSource = lista;
         }
 
-
         public List<Forma_Pago> LeeFormasPago()
         {
             List<Forma_Pago> NuevaLista = new();

@@ -47,15 +47,15 @@
             txt_Cantidad = new TextBox();
             label5 = new Label();
             dgv_detalle = new DataGridView();
-            label7 = new Label();
-            txt_Total_Factura = new TextBox();
-            btn_guardar = new Button();
             IDProducto = new DataGridViewTextBoxColumn();
             NombreProducto = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             Precio = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
             Accion = new DataGridViewButtonColumn();
+            label7 = new Label();
+            txt_Total_Factura = new TextBox();
+            btn_guardar = new Button();
             GrupoDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_detalle).BeginInit();
             SuspendLayout();
@@ -221,36 +221,6 @@
             dgv_detalle.TabIndex = 11;
             dgv_detalle.CellContentClick += dgv_detalle_CellContentClick;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.ForeColor = Color.Blue;
-            label7.Location = new Point(595, 429);
-            label7.Name = "label7";
-            label7.Size = new Size(74, 15);
-            label7.TabIndex = 14;
-            label7.Text = "Total Factura";
-            // 
-            // txt_Total_Factura
-            // 
-            txt_Total_Factura.Enabled = false;
-            txt_Total_Factura.Location = new Point(688, 426);
-            txt_Total_Factura.Name = "txt_Total_Factura";
-            txt_Total_Factura.Size = new Size(100, 23);
-            txt_Total_Factura.TabIndex = 13;
-            txt_Total_Factura.TextAlign = HorizontalAlignment.Right;
-            // 
-            // btn_guardar
-            // 
-            btn_guardar.ForeColor = Color.Blue;
-            btn_guardar.Location = new Point(610, 502);
-            btn_guardar.Name = "btn_guardar";
-            btn_guardar.Size = new Size(75, 23);
-            btn_guardar.TabIndex = 15;
-            btn_guardar.Text = "Guardar";
-            btn_guardar.UseVisualStyleBackColor = true;
-            btn_guardar.Click += btn_guardar_Click;
-            // 
             // IDProducto
             // 
             IDProducto.HeaderText = "IDProducto";
@@ -299,6 +269,36 @@
             Accion.ReadOnly = true;
             Accion.Width = 80;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.Blue;
+            label7.Location = new Point(595, 429);
+            label7.Name = "label7";
+            label7.Size = new Size(74, 15);
+            label7.TabIndex = 14;
+            label7.Text = "Total Factura";
+            // 
+            // txt_Total_Factura
+            // 
+            txt_Total_Factura.Enabled = false;
+            txt_Total_Factura.Location = new Point(688, 426);
+            txt_Total_Factura.Name = "txt_Total_Factura";
+            txt_Total_Factura.Size = new Size(100, 23);
+            txt_Total_Factura.TabIndex = 13;
+            txt_Total_Factura.TextAlign = HorizontalAlignment.Right;
+            // 
+            // btn_guardar
+            // 
+            btn_guardar.ForeColor = Color.Blue;
+            btn_guardar.Location = new Point(610, 502);
+            btn_guardar.Name = "btn_guardar";
+            btn_guardar.Size = new Size(75, 23);
+            btn_guardar.TabIndex = 15;
+            btn_guardar.Text = "Guardar";
+            btn_guardar.UseVisualStyleBackColor = true;
+            btn_guardar.Click += btn_guardar_Click;
+            // 
             // FormFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -319,7 +319,9 @@
             Controls.Add(dtp_FechaFactura);
             Controls.Add(lbl_NumeroFactura);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormFactura";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Factura";
             Load += FormFactura_Load;
             GrupoDetalle.ResumeLayout(false);

@@ -28,12 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            menuStrip1 = new MenuStrip();
+            factruracionToolStripMenuItem = new ToolStripMenuItem();
+            altaDeFacturasToolStripMenuItem = new ToolStripMenuItem();
+            consultaEdicionYBajaDeFacrturasToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { factruracionToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // factruracionToolStripMenuItem
+            // 
+            factruracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { altaDeFacturasToolStripMenuItem, consultaEdicionYBajaDeFacrturasToolStripMenuItem });
+            factruracionToolStripMenuItem.Name = "factruracionToolStripMenuItem";
+            factruracionToolStripMenuItem.Size = new Size(85, 20);
+            factruracionToolStripMenuItem.Text = "&Factruracion";
+            // 
+            // altaDeFacturasToolStripMenuItem
+            // 
+            altaDeFacturasToolStripMenuItem.Name = "altaDeFacturasToolStripMenuItem";
+            altaDeFacturasToolStripMenuItem.Size = new Size(264, 22);
+            altaDeFacturasToolStripMenuItem.Text = "&Alta de Facturas";
+            altaDeFacturasToolStripMenuItem.Click += altaDeFacturasToolStripMenuItem_Click;
+            // 
+            // consultaEdicionYBajaDeFacrturasToolStripMenuItem
+            // 
+            consultaEdicionYBajaDeFacrturasToolStripMenuItem.Name = "consultaEdicionYBajaDeFacrturasToolStripMenuItem";
+            consultaEdicionYBajaDeFacrturasToolStripMenuItem.Size = new Size(264, 22);
+            consultaEdicionYBajaDeFacrturasToolStripMenuItem.Text = "&Consulta Edicion y Baja de Facrturas";
+            consultaEdicionYBajaDeFacrturasToolStripMenuItem.Click += consultaEdicionYBajaDeFacrturasToolStripMenuItem_Click;
+            // 
+            // Principal
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Text = "Form1";
+            Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
+            Name = "Principal";
+            Text = "405369-Facturación";
+            WindowState = FormWindowState.Maximized;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem factruracionToolStripMenuItem;
+        private ToolStripMenuItem altaDeFacturasToolStripMenuItem;
+        private ToolStripMenuItem consultaEdicionYBajaDeFacrturasToolStripMenuItem;
     }
 }

@@ -61,7 +61,7 @@ namespace _405369_Facturacion
                 return;
             }
 
-            if (MessageBox.Show("¿Está seguro que desea eliminar la factura N° " + dgv_ConsultaFacturas.CurrentRow.Cells["NroFactura"].Value + "?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
+            if (MessageBox.Show("¿Está seguro que desea eliminar la factura N° " + dgv_ConsultaFacturas.CurrentRow.Cells["NroFactura"].Value + "?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Servicios servicio = new();
                 servicio.BorradoLogicoFactura((int)dgv_ConsultaFacturas.CurrentRow.Cells["NroFactura"].Value);

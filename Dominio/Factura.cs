@@ -51,7 +51,7 @@ namespace _405369_Facturacion
             param.Add(new SqlParameter("@ID_Forma_Pago", ID_Forma_Pago));
             param.Add(new SqlParameter("@Cliente", Cliente));
             param.Add(new SqlParameter("@Total", Total));
-            param.Add(new SqlParameter("Estado", 0));
+            param.Add(new SqlParameter("@Estado", (object)0));
             comando.EjecutaSP("sp_Ingresa_Factura", param);
         }
 

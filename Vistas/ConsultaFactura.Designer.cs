@@ -228,7 +228,9 @@
             Controls.Add(dtp_FechaHasta);
             Controls.Add(label2);
             Controls.Add(dtp_FechaDesde);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "ConsultaFactura";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Consultar Facturas";
             ((System.ComponentModel.ISupportInitialize)dgv_ConsultaFacturas).EndInit();
             ResumeLayout(false);

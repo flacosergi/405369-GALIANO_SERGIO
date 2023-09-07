@@ -31,12 +31,12 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgv_detalle_factura = new DataGridView();
-            btn_cerrar = new Button();
-            lbl_factura = new Label();
             Cantidad = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewComboBoxColumn();
             Unitario = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
+            btn_cerrar = new Button();
+            lbl_factura = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_detalle_factura).BeginInit();
             SuspendLayout();
             // 
@@ -53,27 +53,6 @@
             dgv_detalle_factura.RowTemplate.Height = 25;
             dgv_detalle_factura.Size = new Size(564, 216);
             dgv_detalle_factura.TabIndex = 0;
-            // 
-            // btn_cerrar
-            // 
-            btn_cerrar.ForeColor = Color.Blue;
-            btn_cerrar.Location = new Point(510, 298);
-            btn_cerrar.Name = "btn_cerrar";
-            btn_cerrar.Size = new Size(75, 23);
-            btn_cerrar.TabIndex = 13;
-            btn_cerrar.Text = "Cerrar";
-            btn_cerrar.UseVisualStyleBackColor = true;
-            btn_cerrar.Click += btn_cerrar_Click;
-            // 
-            // lbl_factura
-            // 
-            lbl_factura.AutoSize = true;
-            lbl_factura.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_factura.Location = new Point(21, 23);
-            lbl_factura.Name = "lbl_factura";
-            lbl_factura.Size = new Size(89, 21);
-            lbl_factura.TabIndex = 14;
-            lbl_factura.Text = "Factura N°";
             // 
             // Cantidad
             // 
@@ -110,6 +89,27 @@
             SubTotal.Name = "SubTotal";
             SubTotal.Width = 120;
             // 
+            // btn_cerrar
+            // 
+            btn_cerrar.ForeColor = Color.Blue;
+            btn_cerrar.Location = new Point(510, 298);
+            btn_cerrar.Name = "btn_cerrar";
+            btn_cerrar.Size = new Size(75, 23);
+            btn_cerrar.TabIndex = 13;
+            btn_cerrar.Text = "Cerrar";
+            btn_cerrar.UseVisualStyleBackColor = true;
+            btn_cerrar.Click += btn_cerrar_Click;
+            // 
+            // lbl_factura
+            // 
+            lbl_factura.AutoSize = true;
+            lbl_factura.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_factura.Location = new Point(21, 23);
+            lbl_factura.Name = "lbl_factura";
+            lbl_factura.Size = new Size(89, 21);
+            lbl_factura.TabIndex = 14;
+            lbl_factura.Text = "Factura N°";
+            // 
             // ConsultaDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -118,7 +118,9 @@
             Controls.Add(lbl_factura);
             Controls.Add(btn_cerrar);
             Controls.Add(dgv_detalle_factura);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "ConsultaDetalle";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Detalle de Factura";
             Load += ConsultaDetalle_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_detalle_factura).EndInit();
